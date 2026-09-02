@@ -16,6 +16,7 @@ export default async function Home() {
     orderBy: {
       createdAt: "desc",
     },
+    take: 20,
   });
 
   const tableData = students.map((student) => ({

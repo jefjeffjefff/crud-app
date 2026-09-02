@@ -84,8 +84,7 @@ export async function updateStudent(
   }
 
   try {
-    await prisma.student.update({
-      where: { id },
+    await prisma.student.updateMany({
       data: validated.data,
     });
     return {

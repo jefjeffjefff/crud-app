@@ -73,9 +73,7 @@ export function StudentTable({ students }: StudentTableProps) {
         name.includes(filters.name.toLowerCase()) &&
         String(student.age).includes(filters.age.trim()) &&
         student.address.toLowerCase().includes(filters.address.toLowerCase()) &&
-        student.gradeLevel
-          .toLowerCase()
-          .includes(filters.gradeLevel.toLowerCase())
+        student.gradeLevel.includes(filters.gradeLevel)
       );
     });
 
@@ -99,7 +97,7 @@ export function StudentTable({ students }: StudentTableProps) {
           undefined,
           {
             numeric: true,
-            sensitivity: "base",
+            sensitivity: "case",
           },
         );
       }
@@ -269,7 +267,6 @@ export function StudentTable({ students }: StudentTableProps) {
                     <Button
                       variant="destructive"
                       size="sm"
-                      disabled={isPending}
                       onClick={() => onDelete(student.id)}
                     >
                       Delete
