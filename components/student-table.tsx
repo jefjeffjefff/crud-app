@@ -222,7 +222,7 @@ export function StudentTable({ students }: StudentTableProps) {
                 <button
                   type="button"
                   className="inline-flex items-center gap-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-700"
-                  onClick={() => toggleSort("address")}
+                  onClick={() => toggleSort("name")}
                 >
                   Address
                   <span className="text-[10px] text-slate-500">

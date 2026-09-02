@@ -10,11 +10,12 @@ export const studentFormSchema = z.object({
     .optional()
     .or(z.literal(""))
     .transform((value) => value || undefined),
-  age: z.coerce.number().int().min(1, "Age must be at least 1.").max(120, "Age must be below 121."),
+  age: z.coerce.number().int(),
   address: z.string().trim().min(1, "Address is required."),
   gradeLevel: z.string().trim().min(1, "Grade level is required."),
 });
 
+export type StudentFormInput = z.input<typeof studentFormSchema>;
 export type StudentFormValues = z.infer<typeof studentFormSchema>;
 
 export type StudentActionState = {
